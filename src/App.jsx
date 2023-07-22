@@ -7,7 +7,9 @@ const App = () => {
 
   const handleAddBook = (book) => {
     const newBook = { ...book, id: Date.now() };
-    setBooks([...books, newBook]);
+    const newBooks = [...books, newBook]
+    setBooks(newBooks);
+    localStorage.setItem('books', JSON.stringify(newBooks));
   };
 
   const handleDeleteBook = (id) => {
@@ -21,14 +23,10 @@ const App = () => {
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('books', JSON.stringify(books));
-  }, [books]);
-
   return (
     <div>
       <h1>Registro de Livros</h1>
-      <BookList books={books} onDelete={handleDeleteBook} />
+      {books.length && <BookList books={books} onDelete={handleDeleteBook} />}
       <BookForm onAdd={handleAddBook} />
     </div>
   );
