@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 
 const BookForm = ({ onAdd }) => {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
+  const [title, setTitle] = useState('')
+  const [author, setAuthor] = useState('')
+  const [genre, setGenre] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (title && author) {
-      onAdd({ title, author });
-      setTitle('');
-      setAuthor('');
+    if (title && author && genre) {
+      onAdd({ title, author, genre });
+      setTitle('')
+      setAuthor('')
+      setGenre('')
     }
   };
 
@@ -25,6 +27,11 @@ const BookForm = ({ onAdd }) => {
         <label>
           Autor:
           <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
+        </label>
+        <br />
+        <label>
+          Gênero:
+          <input type="text" value={genre} onChange={(e) => setGenre(e.target.value)} />
         </label>
         <br />
         <button type="submit">Adicionar</button>
