@@ -2,26 +2,26 @@ import React, { useState } from "react";
 
 const BookList = ({ books, onDelete, onEdit }) => {
   const [editedBookId, setEditedBookId] = useState(null);
-  const [editedBookData, setEditedBookData] = useState({ title: "", author: "", genre: "" });
+  const [editedBookData, setEditedBookData] = useState({ title: "", author: "", genre: "" })
 
   const handleEditClick = (book) => {
     setEditedBookId(book.id);
-    setEditedBookData({ title: book.title, author: book.author, genre: book.genre });
-  };
+    setEditedBookData({ title: book.title, author: book.author, genre: book.genre })
+  }
 
   const handleEditChange = (e) => {
     const { name, value } = e.target;
-    setEditedBookData((prevData) => ({ ...prevData, [name]: value }));
-  };
+    setEditedBookData((prevData) => ({ ...prevData, [name]: value }))
+  }
 
   const handleEditSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (editedBookData.title && editedBookData.author && editedBookData.genre) {
-      onEdit(editedBookId, editedBookData);
-      setEditedBookId(null);
-      setEditedBookData({ title: "", author: "", genre: "" });
+      onEdit(editedBookId, editedBookData)
+      setEditedBookId(null)
+      setEditedBookData({ title: "", author: "", genre: "" })
     }
-  };
+  }
 
   return (
     <div>
@@ -77,4 +77,4 @@ const BookList = ({ books, onDelete, onEdit }) => {
   );
 };
 
-export default BookList;
+export default BookList

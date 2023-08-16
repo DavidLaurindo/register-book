@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from './styles';
 
 const BookForm = ({ onAdd }) => {
   const [title, setTitle] = useState('')
@@ -8,12 +9,12 @@ const BookForm = ({ onAdd }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title && author && genre) {
-      onAdd({ title, author, genre });
+      onAdd({ title, author, genre })
       setTitle('')
       setAuthor('')
       setGenre('')
     }
-  };
+  }
 
   return (
     <div>
@@ -34,10 +35,10 @@ const BookForm = ({ onAdd }) => {
           <input type="text" value={genre} onChange={(e) => setGenre(e.target.value)} />
         </label>
         <br />
-        <button type="submit">Adicionar</button>
+        <Button type="submit">Adicionar</Button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default BookForm;
+export default BookForm
