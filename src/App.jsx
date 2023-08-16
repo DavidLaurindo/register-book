@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import BookList from './BookList';
 import BookForm from './BookForm';
+import { Container, Tela } from './styles';
 
 const App = () => {
   const [books, setBooks] = useState([])
@@ -32,15 +33,21 @@ const App = () => {
   }, [])
 
   return (
-    <div>
-      <h1>Registro de Livros</h1>
-      {books.length > 0 ? (
-        <BookList books={books} onDelete={handleDeleteBook} onEdit={handleEditBook} />
-      ) : (
-        <p>Nenhum livro encontrado.</p>
-      )}
-      <BookForm onAdd={handleAddBook} />
-    </div>
+    <Tela>
+      <Container>
+        <div className='registro'>
+          <h1>Registro de Livros</h1>
+          {books.length > 0 ? (
+            <BookList books={books} onDelete={handleDeleteBook} onEdit={handleEditBook} />
+          ) : (
+            <p>Nenhum livro encontrado.</p>
+          )}
+        </div>
+        <div className='forPosicao'>
+          <BookForm onAdd={handleAddBook} />
+        </div>
+      </Container>
+    </Tela>
   )
 }
 

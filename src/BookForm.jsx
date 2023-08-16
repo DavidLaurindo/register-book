@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from './styles';
+import { Formulario } from './styles';
 
 const BookForm = ({ onAdd }) => {
   const [title, setTitle] = useState('')
@@ -17,7 +18,7 @@ const BookForm = ({ onAdd }) => {
   }
 
   return (
-    <div>
+    <Formulario>
       <h2>Adicionar Livro</h2>
       <form onSubmit={handleSubmit}>
         <label>
@@ -35,9 +36,9 @@ const BookForm = ({ onAdd }) => {
           <input type="text" value={genre} onChange={(e) => setGenre(e.target.value)} />
         </label>
         <br />
-        <Button type="submit">Adicionar</Button>
+        <Button isOn={title && author && genre} type="submit">Adicionar</Button>
       </form>
-    </div>
+    </Formulario>
   )
 }
 
