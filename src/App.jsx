@@ -43,7 +43,7 @@ const App = () => {
             <p>Nenhum livro encontrado.</p>
           )}
         </div>
-        <div className='forPosicao'>
+        <div>
           <BookForm onAdd={handleAddBook} />
         </div>
       </Container>

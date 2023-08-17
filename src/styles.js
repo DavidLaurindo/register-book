@@ -26,7 +26,6 @@ export const Container = styled.div`
     background-color: #5B5FCD;
     width: 418px;
     height: 609px;
-    margin-left: 0px;
     border-radius: 16px 0px 0px 16px;
   }
 
@@ -81,6 +80,7 @@ export const Formulario = styled.div`
     border: none;
     background-color: #D5D6E6;
     outline: none;
+
   }
   ::placeholder{
     color: #9A9A9A;
@@ -102,5 +102,50 @@ export const Button = styled.button`
   font-size: 20px;
   cursor: pointer;
 `
+export const Tabela = styled.table`
+  border-collapse: collapse;
+  width: 418px;
+  text-align: center;
+  margin-top: 25px;
 
+  tr{
+    color: #fff;
+  }
+  .editar{
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    font-size: 20px;
+  }
+  .apagar{
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    font-size: 17px;
+  }
+  td, th{
+
+  }
+  td{
+    padding: 5px;
+    font-size: 13px;
+    color: #fff;
+  }
+`
+export const TextoH2 = styled.h2`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+`
+export const TableRow = styled.tr`
+  background-color: ${props => props.isEven ? "#5358CA; background-image: linear-gradient(to left, #5B5FCD, rgba(91, 95, 205, 1), transparent, transparent);" : "#474BBA; background-image: linear-gradient(to right, #5B5FCD, rgba(91, 95, 205, 1), transparent, transparent);"};
+  
+`
 

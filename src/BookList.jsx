@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Tabela, TableRow, TextoH2 } from "./styles";
+import { FaPenSquare, FaTrashAlt } from 'react-icons/fa';
 
 const BookList = ({ books, onDelete, onEdit }) => {
   const [editedBookId, setEditedBookId] = useState(null);
@@ -25,8 +27,8 @@ const BookList = ({ books, onDelete, onEdit }) => {
 
   return (
     <div>
-      <h2>Lista de Livros</h2>
-      <table>
+      <TextoH2>Lista de Livros</TextoH2>
+      <Tabela>
         <thead>
           <tr>
             <th>Título</th>
@@ -35,8 +37,8 @@ const BookList = ({ books, onDelete, onEdit }) => {
           </tr>
         </thead>
         <tbody>
-          {books.map((book) => (
-            <tr key={book.id}>
+          {books.map((book, index) => (
+            <TableRow key={book.id} isEven={index % 2 === 0} >
               {editedBookId === book.id ? (
                 <td colSpan="4">
                   <form onSubmit={handleEditSubmit}>
@@ -62,17 +64,17 @@ const BookList = ({ books, onDelete, onEdit }) => {
                   <td>{book.author}</td>
                   <td>{book.genre}</td>
                   <td>
-                    <button onClick={() => handleEditClick(book)}>Editar</button>
+                    <button className="editar" onClick={() => handleEditClick(book)}><FaPenSquare /></button>
                   </td>
                   <td>
-                    <button onClick={() => onDelete(book.id)}>Excluir</button>
+                    <button className="apagar" onClick={() => onDelete(book.id)}><FaTrashAlt /></button>
                   </td>
                 </>
               )}
-            </tr>
+            </TableRow>
           ))}
         </tbody>
-      </table>
+      </Tabela>
     </div>
   );
 };
