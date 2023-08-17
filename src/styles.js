@@ -148,4 +148,3 @@ export const TableRow = styled.tr`
   background-color: ${props => props.isEven ? "#5358CA; background-image: linear-gradient(to left, #5B5FCD, rgba(91, 95, 205, 1), transparent, transparent);" : "#474BBA; background-image: linear-gradient(to right, #5B5FCD, rgba(91, 95, 205, 1), transparent, transparent);"};
   
 `
-
