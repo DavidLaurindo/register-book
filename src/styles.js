@@ -108,6 +108,26 @@ export const Tabela = styled.table`
   text-align: center;
   margin-top: 25px;
 
+
+  form,input{
+    border: none;
+    border-radius: 2px;
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin: 1px;
+  }
+  form button{
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 2px;
+    background-color: #fff;
+    margin: 1px 1px 1px 3px;
+    color: #5B5FCD;
+    padding: 2px;
+    cursor: pointer;
+  }
   tr{
     color: #fff;
   }
@@ -130,7 +150,7 @@ export const Tabela = styled.table`
     font-size: 17px;
   }
   td, th{
-
+    //border: 1px solid #fff;
   }
   td{
     padding: 5px;

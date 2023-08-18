@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Tabela, TableRow, TextoH2 } from "./styles";
-import { FaPenSquare, FaTrashAlt } from 'react-icons/fa';
+import { FaPenSquare, FaTrashAlt, FaCheck, FaTimes } from 'react-icons/fa';
 
 const BookList = ({ books, onDelete, onEdit }) => {
   const [editedBookId, setEditedBookId] = useState(null);
@@ -40,22 +40,13 @@ const BookList = ({ books, onDelete, onEdit }) => {
           {books.map((book, index) => (
             <TableRow key={book.id} isEven={index % 2 === 0} >
               {editedBookId === book.id ? (
-                <td colSpan="4">
+                <td colSpan='5'>
                   <form onSubmit={handleEditSubmit}>
-                    <label>
-                      Título:
-                      <input type="text" name="title" value={editedBookData.title} onChange={handleEditChange} />
-                    </label>
-                    <label>
-                      Autor:
-                      <input type="text" name="author" value={editedBookData.author} onChange={handleEditChange} />
-                    </label>
-                    <label>
-                      Gênero:
-                      <input type="text" name="genre" value={editedBookData.genre} onChange={handleEditChange} />
-                    </label>
-                    <button type="submit">Salvar</button>
-                    <button onClick={() => setEditedBookId(null)}>Cancelar</button>
+                    <input type="text" name="title" value={editedBookData.title} onChange={handleEditChange} />
+                    <input type="text" name="author" value={editedBookData.author} onChange={handleEditChange} />
+                    <input type="text" name="genre" value={editedBookData.genre} onChange={handleEditChange} />
+                    <button type="submit"><FaCheck /></button>
+                    <button  onClick={() => setEditedBookId(null)}><FaTimes /></button>
                   </form>
                 </td>
               ) : (
